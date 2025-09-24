@@ -27,7 +27,7 @@ export default function Calendar({ dateState }) {
         currentDate.setDate(currentDate.getDate() + 1);
         let backwardIndex = 1;
         for (let i = 0; i < 42; i++) {
-            if (Date.prototype.monthNames[currentDate.getMonth()] != Date.prototype.monthNames[currenMonth]) {
+            if (Date.prototype.monthNames[currentDate.getMonth()] !== Date.prototype.monthNames[currenMonth]) {
                 jsx.push(<CalendarBox key={i} value={currentDate.getDate()} selected={false} />);
                 currentDate.setDate(currentDate.getDate() + 1);
 
