@@ -15,7 +15,14 @@ const tasRouter = require("./routes/tasks");
 app.use("/api/tasks",tasRouter)
 
 
-
+app.get('/', (req, res)=> {
+  res.send({
+    activeStatus: true,
+    error: false,
+  })
+})
+  
+  
 
 
 app.listen(process.env.PORT,()=>console.log(`server is listening at port ${process.env.PORT}`));
