@@ -48,7 +48,7 @@ export default function BoardBox({ completed, title, category, dueDate, _id, tim
         container.current.classList = `board_box_container closed ${category}`;
         if (container.current.id) {
             e.preventDefault();
-            const { data } = await axios.put(`http://localhost:3002/api/tasks/${_id}`,
+            const { data } = await axios.put(`https://task-management-app-master.vercel.app/api/tasks/${_id}`,
                 {
                     completed: !completed
                 });
@@ -68,7 +68,7 @@ export default function BoardBox({ completed, title, category, dueDate, _id, tim
 
     }
     const removeTask = async () => {
-        const { data } = await axios.delete(`http://localhost:3002/api/tasks/${_id}`);
+        const { data } = await axios.delete(`https://task-management-app-master.vercel.app/api/tasks/${_id}`);
         if (data.success) {
             notification(currentValue => {
                 if (currentValue) {
