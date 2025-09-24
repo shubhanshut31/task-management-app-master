@@ -19,6 +19,8 @@ app.use("/api/tasks",tasRouter)
 
 
 
-
+app.get('/', (req, res) => {
+  res.send('Hello, World!'); // Sends a simple text response
+});
 
 app.listen(process.env.PORT,()=>console.log(`server is listening at port ${process.env.PORT}`));
