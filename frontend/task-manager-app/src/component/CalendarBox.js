@@ -15,11 +15,11 @@ export default function CalendarBox({ value, selected, setDate }) {
     const toggle = (selectedbox) => {
         if (selected === true) {
 
-            if (document.querySelector("#theOne") != undefined) {
+            if (document.querySelector("#theOne") !== undefined) {
                 document.querySelector("#theOne").id = "";
             }
             if (selectedbox.target.classList.value === "calender_box_container selected") {
-                if (selectedbox.target.id != "theOne") {
+                if (selectedbox.target.id !== "theOne") {
                     selectedbox.target.id = "theOne";
                     if (setDate) {
                         const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
@@ -29,7 +29,7 @@ export default function CalendarBox({ value, selected, setDate }) {
                 }
             }
             else {
-                if (selectedbox.target.parentElement.id != "theOne") {
+                if (selectedbox.target.parentElement.id !== "theOne") {
                     selectedbox.target.parentElement.id = "theOne";
                     if (setDate) {
                         const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
