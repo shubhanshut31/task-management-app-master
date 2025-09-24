@@ -16,7 +16,7 @@ function getDateFormula(dueDate) {
     let month = "";
     let year = "";
     for (let i = 0; i < dueDate.length; i++) {
-        if (dueDate[i] != "/") {
+        if (dueDate[i] !== "/") {
             day += dueDate[i];
         }
         else {
@@ -25,7 +25,7 @@ function getDateFormula(dueDate) {
         }
     }
     for (let i = 0; i < year.length; i++) {
-        if (year[i] != "/") {
+        if (year[i] !== "/") {
             month += year[i];
         }
         else {
@@ -95,7 +95,7 @@ export default function BoardBox({ completed, title, category, dueDate, _id, tim
 
     return (
         <div draggable="true" onDragStart={dragStarted} onDragEnd={dragEnded} className={`board_box_container closed ${category}`} ref={container} onClick={() => {
-            container.current.classList = container.current.classList.value == `board_box_container opened ${category}` ? `board_box_container closed ${category}` : `board_box_container opened ${category}`
+            container.current.classList = container.current.classList.value === `board_box_container opened ${category}` ? `board_box_container closed ${category}` : `board_box_container opened ${category}`
         }}>
             <i className="fa-solid fa-xmark" onClick={removeTask}></i>
             <div className="box_icon_container">
@@ -112,7 +112,7 @@ export default function BoardBox({ completed, title, category, dueDate, _id, tim
                     {description}
                 </p>
             </div>
-            {path != "/" ? <img src={path} alt="" /> : ""}
+            {path !== "/" ? <img src={path} alt="" /> : ""}
 
         </div>
     )
