@@ -46,7 +46,7 @@ export default function CalendarBox({ value, selected, setDate }) {
         const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
         const year = document.querySelector("#calendar_header h5").textContent.replace(/\D/g, '').trim();
         let date = `${value}/${month}/${year}`;
-        const { data } = await axios.get(`http://localhost:3002/api/tasks/date/${date}`);
+        const { data } = await axios.get(`https://task-management-app-master.vercel.app/api/tasks/date/${date}`);
         if (data.success === true && data.data.length > 0 && selected === true) {
             textHolder.current.classList = "task";
         }
