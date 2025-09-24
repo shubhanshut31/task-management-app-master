@@ -7,7 +7,7 @@ mongoose.connect(process.env.DATABASE_URL);
 const app = express();
 const db = mongoose.connection;
 app.use(cors({
-  origin: ["https://task-management-app-master.vercel.app/"]
+  origin: ["https://task-management-app-master-6yt.vercel.app/"]
   })
 );
 app.use(express.json());
