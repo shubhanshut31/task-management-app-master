@@ -4,8 +4,7 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://task-management-app-master-6yt4-3pjh6iuru.vercel.app"
+          "Access-Control-Allow-Origin": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
