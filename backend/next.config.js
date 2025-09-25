@@ -1,15 +1,17 @@
-module.exports = {
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' https://vercel.live; object-src 'none';",
-          },
-        ],
-      },
-    ];
-  },
-};
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "Access-Control-Allow-Origin": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization" 
+        }
+      ]
+    }
+  ]
