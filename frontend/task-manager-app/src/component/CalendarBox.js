@@ -52,6 +52,22 @@ export default function CalendarBox({ value, selected, setDate }) {
         }
 
     }
+    // In CalendarBox.js, inside the component function:
+
+const handleClick = (item) => { // Assuming 'item' is the data you're using
+    // 🛑 BAD: item.id = 'new_id'; 
+    
+    // ✅ GOOD: Use an if check
+    if (item) {
+        // You can now safely set or read properties of item
+        item.id = 'new_id'; 
+        // ... more logic
+    }
+    
+    // ✅ ALTERNATIVE GOOD: Use optional chaining (safer for reading properties)
+    const itemId = item?.id;
+    
+}
     useEffect(() => {
         if (document.querySelector("#theOne") != null) {
             document.querySelector("#theOne").id = "";
