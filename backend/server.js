@@ -9,14 +9,7 @@ const db = mongoose.connection;
 
 // --- CORRECTED CORS CONFIGURATION ---
 // You MUST include the protocol (https:// or http://) for the origins to be valid.
-app.use(cors({
-    origin: [
-        "https://task-management-app-master-6yt4-3pjh6iuru.vercel.app", // This is the frontend origin that needs access
-        "https://task-management-app-master.vercel.app",
-        "http://localhost:3002" // This might be for testing or a base URL, but it should also have the protocol
-    ],
-     credentials: true,
-}));
+app.use(cors());
 // ------------------------------------
 
 app.use(express.json());
