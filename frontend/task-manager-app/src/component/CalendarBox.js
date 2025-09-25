@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef } from "react";
 import "./CalendarBox.css";
-Date.prototype.monthNames = [
+Date.MONTH_NAMES = [
     "January", "February", "March",
     "April", "May", "June",
     "July", "August", "September",
@@ -22,7 +22,7 @@ export default function CalendarBox({ value, selected, setDate }) {
                 if (selectedbox.target.id !== "theOne") {
                     selectedbox.target.id = "theOne";
                     if (setDate) {
-                        const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
+                        const month = Date.MONTH_NAMES.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
                         const year = document.querySelector("#calendar_header h5").textContent.replace(/\D/g, '').trim();
                         setDate(`${selectedbox.target.textContent}/${month}/${year}`);
                     }
@@ -32,7 +32,7 @@ export default function CalendarBox({ value, selected, setDate }) {
                 if (selectedbox.target.parentElement.id !== "theOne") {
                     selectedbox.target.parentElement.id = "theOne";
                     if (setDate) {
-                        const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
+                        const month = Date.MONTH_NAMES.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
                         const year = document.querySelector("#calendar_header h5").textContent.replace(/\D/g, '').trim();
                         setDate(`${textHolder.current.textContent}/${month}/${year}`);
                     }
@@ -43,7 +43,7 @@ export default function CalendarBox({ value, selected, setDate }) {
 
     }
     const getDate = async () => {
-        const month = Date.prototype.monthNames.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
+        const month = Date.MONTH_NAMES.indexOf(document.querySelector("#calendar_header h5").textContent.replace(/[0-9]/g, '').trim()) + 1;
         const year = document.querySelector("#calendar_header h5").textContent.replace(/\D/g, '').trim();
         let date = `${value}/${month}/${year}`;
         const { data } = await axios.get(`https://task-management-app-master.vercel.app/api/tasks/date/${date}`);
@@ -54,20 +54,7 @@ export default function CalendarBox({ value, selected, setDate }) {
     }
     // In CalendarBox.js, inside the component function:
 
-const handleClick = (item) => { // Assuming 'item' is the data you're using
-    // 🛑 BAD: item.id = 'new_id'; 
-    
-    // ✅ GOOD: Use an if check
-    if (item) {
-        // You can now safely set or read properties of item
-        item.id = 'new_id'; 
-        // ... more logic
-    }
-    
-    // ✅ ALTERNATIVE GOOD: Use optional chaining (safer for reading properties)
-    const itemId = item?.id;
-    
-}
+
     useEffect(() => {
         if (document.querySelector("#theOne") != null) {
             document.querySelector("#theOne").id = "";
