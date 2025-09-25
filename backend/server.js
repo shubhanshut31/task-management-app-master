@@ -14,6 +14,7 @@ app.use(cors({
         "https://task-management-app-master-6yt4-3pjh6iuru.vercel.app", // This is the frontend origin that needs access
         "https://task-management-app-master.vercel.app" // This might be for testing or a base URL, but it should also have the protocol
     ],
+     credentials: true,
 }));
 // ------------------------------------
 
