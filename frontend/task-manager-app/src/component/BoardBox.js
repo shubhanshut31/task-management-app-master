@@ -5,7 +5,7 @@ import { icons } from "./TaskListRow";
 import { NotificationContext } from "./ViewPage";
 import Notification from "./Notification";
 import { TasksContext } from "./BoardView"
-Date.prototype.monthNames = [
+const MONTH_NAMES = [
     "January", "February", "March",
     "April", "May", "June",
     "July", "August", "September",
@@ -29,7 +29,7 @@ function getDateFormula(dueDate) {
             month += year[i];
         }
         else {
-            month = Date.prototype.monthNames[Number(month - 1)]
+            month = MONTH_NAMES[Number(month - 1)]
             year = year.slice(i + 1, dueDate.length);
             break
         }
