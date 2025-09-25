@@ -25,10 +25,8 @@ db.on("error", (err) => console.log(err));
 db.on("open", () => console.log("DATABASE_CONNECTED"));
 
 const tasRouter = require("./routes/tasks");
-app.use("/api/tasks", tasRouter);
+app.get("/api/tasks", tasRouter);
 
-app.get("/", (req, res) => {
-    res.send("Hello, World!"); // Sends a simple text response
-});
+
 
 app.listen(process.env.PORT, () => console.log(`server is listening at port ${process.env.PORT}`));
